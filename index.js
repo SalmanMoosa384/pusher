@@ -45,27 +45,8 @@ app.post("/pusher/auth", (req, res) => {
 
 
 app.get("/",(req,res)=>{
-  const pusherRead = new PusherRead("6851417868d8441ebf82", {
-    cluster: "mt1",
-    useTLS: false,
-    authEndpoint: "https://dubaitechnologynow.com:2005/api/auth/pusher",
-  });
 
-
-const channel = pusherRead.subscribe("private-user.1");
-console.log("channel",channel)
-channel.bind("App\\Events\\UserEvent", (data) => {
-  console.log("data", data);
-});
-
-  // const presenceChannel = pusherRead.subscribe('presence-presence-video-channel-1');
-
-  // presenceChannel.bind('App\\Events\\StartVideoChat', (data) => {
-//   console.log('Received event data:', data);
-// });
-
-
-  res.status(200).send("12")
+  res.status(200).send("working")
 })
 
 // app.post("/message/send", (req, res) => {
