@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pusher Test</title>
+  <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
+  <script>
+    // Enable Pusher logging - for debugging only
+    Pusher.logToConsole = true;
+
+    // Initialize Pusher with your credentials
+    var pusher = new Pusher('6851417868d8441ebf82', {
+      cluster: 'mt1'
+    });
+
+    // Subscribe to the private-chat channel
+    var channel = pusher.subscribe('private-chat');
+
+    // Bind to the client-stop-typing.3 event
+    channel.bind('client-stop-typing.3', function(data) {
+      alert('Received client-stop-typing.3 event: ' + JSON.stringify(data));
+      // Handle the event data here as needed
+    });
+  </script>
+</head>
+<body>
+  <h1>Pusher Test</h1>
+  <p>
+    This page is listening for the <code>client-stop-typing.3</code> event
+    on the <code>private-chat</code> channel.
+  </p>
+</body>
+</html>
